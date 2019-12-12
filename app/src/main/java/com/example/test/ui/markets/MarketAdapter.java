@@ -47,7 +47,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
         MarketModel model = marketModelsList.get(position);
 
         holder.tvName.setText(model.getName());
-        holder.tvStockId.setText("Used Stock ID:" + model.getId());
+        holder.tvStockId.setText("Used Stock ID:" + model.getStockID());
     }
 
     public void addList(List<MarketModel> listMarketModel) {
