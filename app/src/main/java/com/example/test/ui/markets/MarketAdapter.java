@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.test.R;
+import com.example.test.model.interactor.Interactor;
 import com.example.test.model.models.MarketModel;
+import com.example.test.model.models.StockModel;
 import com.example.test.utils.rewriting_view.SquareFrameLayout;
 
 import java.util.ArrayList;
@@ -22,6 +24,9 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
 
     private Context context;
     private List<MarketModel> marketModelsList;
+    private List<StockModel> stockModelsList;
+
+    private Interactor.interactorStock mInteractor;
 
     MarketAdapter(Context context) {
         this.context = context;
