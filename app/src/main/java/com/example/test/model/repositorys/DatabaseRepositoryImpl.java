@@ -134,6 +134,11 @@ public class DatabaseRepositoryImpl extends SQLiteOpenHelper implements Database
         cursor.close();
     }
 
+    @Override
+    public void getAllRecordsFtomTableStock(MarketModel model, MarketListEvent event) {
+
+    }
+
 
     @Override
     public void clearDB(BooleanEvent event) {

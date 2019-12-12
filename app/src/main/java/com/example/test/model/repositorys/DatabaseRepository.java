@@ -12,6 +12,8 @@ public interface DatabaseRepository {
 
     void getAllRecordsFtomTable(MarketModel model, MarketListEvent event);
 
+    void getAllRecordsFtomTableStock(MarketModel model, MarketListEvent event);
+
     void clearDB(BooleanEvent event);
 
     void fillTable();

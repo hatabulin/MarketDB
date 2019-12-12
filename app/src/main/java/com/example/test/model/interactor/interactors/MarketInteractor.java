@@ -27,7 +27,7 @@ public class MarketInteractor implements Interactor.interactorMarket {
             public void result(List<MarketModel> responseMarketList) {
 
                 if (responseMarketList != null) {
-                    mDatabaseRepository.closeBase();
+//                    mDatabaseRepository.closeBase();
                     event.result(responseMarketList);
                 }
             }

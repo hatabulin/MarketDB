@@ -30,7 +30,9 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
 
     MarketAdapter(Context context) {
         this.context = context;
+
         this.marketModelsList = new ArrayList<>();
+        this.stockModelsList = new ArrayList<>();
     }
 
     @Override
@@ -59,6 +61,13 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
 
         this.marketModelsList.clear();
         this.marketModelsList = listMarketModel;
+
+//        mInteractor.getListStocks(new StockListEvent() {
+//            @Override
+//            public void result(List<StockModel> responseStockList) {
+//                stockModelsList = responseStockList;
+//            }
+//        });
         notifyDataSetChanged();
     }
 

@@ -1,6 +1,7 @@
 package com.example.test.model.interactor;
 
 import com.example.test.model.events.MarketListEvent;
+import com.example.test.model.events.StockListEvent;
 import com.example.test.model.events.SuccessEvent;
 
 public interface Interactor {
@@ -15,6 +16,8 @@ public interface Interactor {
     }
 
     interface interactorStock {
+
+        void getListStocks(StockListEvent event);
 
         void setSelectedStock(int id, SuccessEvent event);
     }
