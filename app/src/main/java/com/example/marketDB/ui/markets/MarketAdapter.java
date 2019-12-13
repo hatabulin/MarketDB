@@ -30,8 +30,8 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
 
     MarketAdapter(Context context) {
         this.context = context;
-
         this.marketModelsList = new ArrayList<>();
+
         this.stockModelsList = new ArrayList<>();
     }
 
@@ -57,6 +57,8 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
         holder.tvStockId.setText("Used Stock ID:" + model.getStockID());
     }
 
+    // Изменить нахуй !
+    @Deprecated
     public void addList(List<MarketModel> listMarketModel) {
 
         this.marketModelsList.clear();
