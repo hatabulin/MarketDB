@@ -1,7 +1,6 @@
 package com.example.marketDB.ui.markets;
 
 import com.example.marketDB.model.events.MarketWithStockListEvent;
-import com.example.marketDB.model.events.SuccessEvent;
 import com.example.marketDB.model.interactor.Interactor;
 import com.example.marketDB.model.models.MarketWithStockModel;
 
@@ -39,13 +38,8 @@ public class MarketListFragmentPresenter implements MarketListFragmentView.Prese
 
     @Override
     public void setSelectedId(Long id) {
-        mInteractorMarket.setSelectedMarket(id.intValue(), new SuccessEvent() {
-            @Override
-            public void done() {
-                if (mView != null) {
-                    mView.openMarket();
-                }
-            }
-        });
+        if (mView != null) {
+            mView.openMarket();
+        }
     }
 }

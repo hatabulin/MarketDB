@@ -1,16 +1,12 @@
-package com.example.marketDB.ui.markets;
+package com.example.marketDB.ui.market_details;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
-import android.widget.ImageView;
 
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marketDB.R;
@@ -19,14 +15,15 @@ import com.example.marketDB.model.interactor.interactors.MarketInteractor;
 import com.example.marketDB.model.models.MarketWithStockModel;
 import com.example.marketDB.model.repositorys.DatabaseRepositoryImpl;
 import com.example.marketDB.ui.base.BaseFragment;
-import com.example.marketDB.ui.base.dialogs.AddRecordDialog;
-import com.example.marketDB.utils.LogUtils;
+import com.example.marketDB.ui.markets.MarketListFragmentPresenter;
+import com.example.marketDB.ui.markets.MarketListFragmentView;
+import com.example.marketDB.ui.markets.MarketWithStockAdapter;
 import com.example.marketDB.utils.fragments.FragmentsAnimationId;
 import com.example.marketDB.utils.fragments.FragmentsId;
 
 import java.util.List;
 
-public class MarketListFragment extends BaseFragment implements MarketListFragmentView.View {
+public class MarketDetailsFragment extends BaseFragment implements MarketListFragmentView.View {
 
 
     private MarketListFragmentView.Presenter presenter;
@@ -37,7 +34,7 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
     private RecyclerView recyclerView;
     private Button btnAddRecord;
 
-    public MarketListFragment() {
+    public MarketDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -84,56 +81,6 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
     }
 
     private void initView(View v) {
-        adapter = new MarketWithStockAdapter(getContext());
-//        adapter = new MarketAdapter(getContext());
-        recyclerView = v.findViewById(R.id.recyclerView);
-
-        btnAddRecord = v.findViewById(R.id.btnAdd);
-        btnAddRecord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LogUtils.log("add record:");
-                AddRecordDialog dialog = new AddRecordDialog();
-                dialog.registerEvent(new AddRecordDialog.Event() {
-                    @Override
-                    public void confirm() {
-
-                    }
-
-                    @Override
-                    public void failed() {
-
-                    }
-
-                    @Override
-                    public void isDismis() {
-
-                    }
-                });
-                dialog.show(getChildFragmentManager(), dialog.getClass().getSimpleName());
-            }
-        });
-
-        LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.recycler_layout_item_animation);
-        recyclerView.setLayoutAnimation(animation);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        recyclerView.setAdapter(adapter);
-
-        adapter.registerEvent(new MarketWithStockAdapter.Event() {
-            @Override
-            public void click(Long id) {
-                presenter.setSelectedId(id);
-            }
-        });
-
-        ImageView iv_toolbar_back = v.findViewById(R.id.iv_toolbar_back);
-        iv_toolbar_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //        mListener.changeFragment(FragmentsId.HOME, FragmentsAnimationId.LEFT_TO_RIGHT);
-            }
-        });
-
     }
 
     @Override

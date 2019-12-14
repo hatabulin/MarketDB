@@ -33,6 +33,7 @@ public class DatabaseRepositoryImpl extends SQLiteOpenHelper implements Database
 
     final private String DATABASE_NAME = "base_db";
 
+    final private String ID_FIELD = "id";
     final private String NAME_FIELD = "name";
     final private String STOCK_ID_FIELD = "stock_id";
     final private String PRODUCT_ID_FIELD = "product_id";
@@ -170,16 +171,16 @@ public class DatabaseRepositoryImpl extends SQLiteOpenHelper implements Database
 
                 int marketNameFieldIndex = cursorMarket.getColumnIndex(NAME_FIELD);
                 int marketStockIdFieldIndex = cursorMarket.getColumnIndex(STOCK_ID_FIELD);
+                int marketIdFieldIndex = cursorMarket.getColumnIndex(ID_FIELD);
 
                 do {
                     MarketWithStockModel marketWithStockModel = new MarketWithStockModel();
 
                     marketWithStockModel.setName(cursorMarket.getString(marketNameFieldIndex));
+                    marketWithStockModel.setId(cursorMarket.getInt(marketIdFieldIndex));
 
                     int stockId = cursorMarket.getInt(marketStockIdFieldIndex);
-
                     if (cursorStock.moveToFirst()) cursorStock.moveToPosition(stockId - 1);
-
                     int stockNameFieldIndex = cursorMarket.getColumnIndex(NAME_FIELD);
                     marketWithStockModel.setStockName(cursorStock.getString(stockNameFieldIndex));
 
