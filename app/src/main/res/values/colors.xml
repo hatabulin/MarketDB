@@ -22,4 +22,10 @@
     <color name="black">#000</color>
 
     <color name="colorBlue">#122699</color>
+
+    <color name="colorToastSuccess">#3CA455</color>
+    <color name="colorToastError">#C84040</color>
+    <color name="colorToastWarning">#E67337</color>
+    <color name="colorToastDefault">#000000</color>
+    <color name="colorToastInfo">#0000E0</color>
 </resources>

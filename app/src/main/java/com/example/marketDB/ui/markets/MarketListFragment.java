@@ -18,6 +18,7 @@ import com.example.marketDB.model.interactor.interactors.MarketInteractor;
 import com.example.marketDB.model.models.MarketWithStockModel;
 import com.example.marketDB.model.repositorys.DatabaseRepositoryImpl;
 import com.example.marketDB.ui.base.BaseFragment;
+import com.example.marketDB.utils.ToasUtils;
 import com.example.marketDB.utils.fragments.FragmentsAnimationId;
 import com.example.marketDB.utils.fragments.FragmentsId;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -88,7 +89,7 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ToasUtils.info("Under construction !");
             }
         });
 

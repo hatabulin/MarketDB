@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.marketDB.R;
 import com.example.marketDB.model.interactor.Interactor;
 import com.example.marketDB.model.models.MarketWithStockModel;
+import com.example.marketDB.utils.ToasUtils;
 import com.example.marketDB.utils.rewriting_view.SquareFrameLayout;
 
 import java.util.ArrayList;
@@ -81,7 +82,8 @@ public class MarketWithStockAdapter extends RecyclerView.Adapter<MarketWithStock
             @Override
             public void onClick(View v) {
                 if (mEvent != null) {
-                    mEvent.click(model.getId());
+                    //mEvent.click(model.getId());
+                    ToasUtils.info("Under construction !");
                 }
             }
         });
