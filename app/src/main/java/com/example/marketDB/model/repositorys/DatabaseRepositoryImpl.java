@@ -20,15 +20,13 @@ import static com.example.marketDB.MyApp.getContext;
 public class DatabaseRepositoryImpl extends SQLiteOpenHelper implements DatabaseRepository {
 
     //  данные по умолчанию в таблице 'shop'
-    final int[] market_stock_id = {2, 1, 5, 5};
-    final String[] market_name = {"TamTam", "Silpo", "ATB", "Salut"};
+    final int[] market_stock_id = {2, 1, 5, 6};
+    final String[] market_name = {"ТАМ-ТАМ", "Сільпо", "АТБ", "Салют"};
     // данные по умолчанию в таблице 'stock'
-    final int[] stock_id = {1, 2, 3, 4, 5, 6};
-    final String[] stock_name = {"STOCK #1", "STOCK #2", "STOCK #3", "STOCK #4", "STOCK #5", "STOCK #6"};
-    final int[] stock_product_id = {2, 3, 2, 2, 3, 1};
+    final String[] stock_name = {"Львів", "Луцьк", "Рівне", "Київ", "Харків", "Крим"};
     // данные по умолчанию в таблице 'product_name'
     final int[] product_id = {1, 2, 3, 4, 5, 6};
-    final String[] product_name = {"Apple", "Orange", "Lemon", "Tea", "Beer", "Vodka"};
+    final String[] product_name = {"Яблоки", "Груши", "Мандарині", "Виноград", "Хлеб", "Бухло"};
 
     final private String TABLE_MARKETS_NAME = "markets";
     final private String TABLE_STOCKS_NAME = "stocks";

@@ -123,7 +123,16 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
         iv_toolbar_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//        mListener.changeFragment(FragmentsId.HOME, FragmentsAnimationId.LEFT_TO_RIGHT);
+
+                adapter.registerEvent(new MarketWithStockAdapter.Event() {
+                    @Override
+                    public void click(Long id) {
+                        presenter.setSelectedId(id);
+                    }
+                });
+
+
+                //        mListener.changeFragment(FragmentsId.HOME, FragmentsAnimationId.LEFT_TO_RIGHT);
             }
         });
     }

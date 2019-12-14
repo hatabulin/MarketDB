@@ -44,16 +44,8 @@ public class MarketWithStockAdapter extends RecyclerView.Adapter<MarketWithStock
         return new MarketWithStockAdapter.ViewHolder(v);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull final MarketWithStockAdapter.ViewHolder holder, final int position) {
+    private Event mEvent;
 
-        MarketWithStockModel model = marketWithStockModelList.get(position);
-
-        holder.tvName.setText(model.getName());
-        holder.tvStockId.setText("Stock: " + model.getStockName());
-    }
-
-    // Изменить нахуй !
     @Deprecated
     public void addList(List<MarketWithStockModel> marketWithStockModels) {
 
@@ -81,5 +73,31 @@ public class MarketWithStockAdapter extends RecyclerView.Adapter<MarketWithStock
             tvName = itemView.findViewById(R.id.tv_name);
             tvStockId = itemView.findViewById(R.id.tv_stock_id);
         }
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final MarketWithStockAdapter.ViewHolder holder, final int position) {
+
+        MarketWithStockModel model = marketWithStockModelList.get(position);
+
+        holder.tvName.setText("\"" + model.getName() + "\"");
+        holder.tvStockId.setText("Склад: " + model.getStockName());
+
+        holder.shopItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    public void registerEvent(Event event) {
+
+        mEvent = event;
+    }
+
+    public interface Event {
+
+        void click(Long id);
     }
 }

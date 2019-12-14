@@ -82,4 +82,17 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
             tvStockId = itemView.findViewById(R.id.tv_stock_id);
         }
     }
+
+    private Event mEvent;
+
+    public void registerEvent(Event event) {
+
+        mEvent = event;
+    }
+
+    public interface Event {
+
+        void click(Long id);
+    }
+
 }
