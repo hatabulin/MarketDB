@@ -23,7 +23,7 @@
             <TextView
                 android:id="@+id/tv_toolbar_title"
                 style="@style/ToolbarTitle"
-                android:text="Markets list" />
+                android:text="@string/fragment_market_title" />
         </LinearLayout>
 
 

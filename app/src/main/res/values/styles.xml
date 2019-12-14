@@ -29,4 +29,9 @@
         <item name="android:windowExitAnimation">@anim/alpfa_hide_content</item>
     </style>
 
+    <style name="MarketNameItem">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

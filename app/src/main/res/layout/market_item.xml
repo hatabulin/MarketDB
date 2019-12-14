@@ -15,6 +15,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/MarketNameItem"
             android:layout_marginBottom="32dp"
             android:textSize="20sp" />
 
@@ -22,7 +23,7 @@
             android:id="@+id/tv_stock_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="22dp"
             android:textSize="20sp" />
 
     </LinearLayout>
