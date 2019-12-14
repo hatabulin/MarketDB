@@ -38,13 +38,6 @@ public class MarketDetailsFragment extends BaseFragment implements MarketListFra
         // Required empty public constructor
     }
 
-//    public static MarketListFragment newInstance(String param1, String param2) {
-//        MarketListFragment fragment = new MarketListFragment();
-//        Bundle args = new Bundle();
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

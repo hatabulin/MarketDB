@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,10 +18,9 @@ import com.example.marketDB.model.interactor.interactors.MarketInteractor;
 import com.example.marketDB.model.models.MarketWithStockModel;
 import com.example.marketDB.model.repositorys.DatabaseRepositoryImpl;
 import com.example.marketDB.ui.base.BaseFragment;
-import com.example.marketDB.ui.base.dialogs.AddRecordDialog;
-import com.example.marketDB.utils.LogUtils;
 import com.example.marketDB.utils.fragments.FragmentsAnimationId;
 import com.example.marketDB.utils.fragments.FragmentsId;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -35,18 +33,11 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
     private MarketWithStockAdapter adapter;
     //    private MarketAdapter adapter;
     private RecyclerView recyclerView;
-    private Button btnAddRecord;
+    private FloatingActionButton btn_add;
 
     public MarketListFragment() {
         // Required empty public constructor
     }
-
-//    public static MarketListFragment newInstance(String param1, String param2) {
-//        MarketListFragment fragment = new MarketListFragment();
-//        Bundle args = new Bundle();
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +52,7 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_markets, container, false);
+
         initView(v);
         presenter.onViewCreated();
         return v;
@@ -85,39 +77,20 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
 
     private void initView(View v) {
         adapter = new MarketWithStockAdapter(getContext());
-//        adapter = new MarketAdapter(getContext());
         recyclerView = v.findViewById(R.id.recyclerView);
-
-        btnAddRecord = v.findViewById(R.id.btnAdd);
-        btnAddRecord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LogUtils.log("add record:");
-                AddRecordDialog dialog = new AddRecordDialog();
-                dialog.registerEvent(new AddRecordDialog.Event() {
-                    @Override
-                    public void confirm() {
-
-                    }
-
-                    @Override
-                    public void failed() {
-
-                    }
-
-                    @Override
-                    public void isDismis() {
-
-                    }
-                });
-                dialog.show(getChildFragmentManager(), dialog.getClass().getSimpleName());
-            }
-        });
 
         LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.recycler_layout_item_animation);
         recyclerView.setLayoutAnimation(animation);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(adapter);
+
+        btn_add = v.findViewById(R.id.fab_market);
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         adapter.registerEvent(new MarketWithStockAdapter.Event() {
             @Override
