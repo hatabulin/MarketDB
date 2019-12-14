@@ -1,6 +1,6 @@
 package com.example.marketDB.model.interactor;
 
-import com.example.marketDB.model.events.MarketListEvent;
+import com.example.marketDB.model.events.MarketWithStockListEvent;
 import com.example.marketDB.model.events.StockListEvent;
 import com.example.marketDB.model.events.SuccessEvent;
 
@@ -8,7 +8,7 @@ public interface Interactor {
 
     interface interactorMarket {
 
-        void getListMarkets(MarketListEvent event);
+        void getListMarkets(MarketWithStockListEvent event);
 
         void setSelectedMarket(int id, SuccessEvent event);
 

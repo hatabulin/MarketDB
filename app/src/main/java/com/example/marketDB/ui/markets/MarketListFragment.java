@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.marketDB.R;
 import com.example.marketDB.model.events.FragmentChangedEvent;
 import com.example.marketDB.model.interactor.interactors.MarketInteractor;
-import com.example.marketDB.model.models.MarketModel;
+import com.example.marketDB.model.models.MarketWithStockModel;
 import com.example.marketDB.model.repositorys.DatabaseRepositoryImpl;
 import com.example.marketDB.ui.base.BaseFragment;
 import com.example.marketDB.ui.base.dialogs.AddRecordDialog;
@@ -32,7 +32,8 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
     private MarketListFragmentView.Presenter presenter;
 
     private OnFragmentInteractionListener mListener;
-    private MarketAdapter adapter;
+    private MarketWithStockAdapter adapter;
+    //    private MarketAdapter adapter;
     private RecyclerView recyclerView;
     private Button btnAddRecord;
 
@@ -83,7 +84,8 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
     }
 
     private void initView(View v) {
-        adapter = new MarketAdapter(getContext());
+        adapter = new MarketWithStockAdapter(getContext());
+//        adapter = new MarketAdapter(getContext());
         recyclerView = v.findViewById(R.id.recyclerView);
 
         btnAddRecord = v.findViewById(R.id.btnAdd);
@@ -127,7 +129,7 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
     }
 
     @Override
-    public void viewListMarkets(List<MarketModel> listMarketModel) {
+    public void viewListMarkets(List<MarketWithStockModel> listMarketModel) {
 
         adapter.addList(listMarketModel);
         //RecycleAdapter adapter = new RecycleAdapter(populateRecycler);//and then populate your recycler adapter

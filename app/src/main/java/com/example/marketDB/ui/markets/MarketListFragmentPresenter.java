@@ -1,9 +1,9 @@
 package com.example.marketDB.ui.markets;
 
-import com.example.marketDB.model.events.MarketListEvent;
+import com.example.marketDB.model.events.MarketWithStockListEvent;
 import com.example.marketDB.model.events.SuccessEvent;
 import com.example.marketDB.model.interactor.Interactor;
-import com.example.marketDB.model.models.MarketModel;
+import com.example.marketDB.model.models.MarketWithStockModel;
 
 import java.util.List;
 
@@ -29,14 +29,10 @@ public class MarketListFragmentPresenter implements MarketListFragmentView.Prese
     @Override
     public void onViewCreated() {
 
-        mInteractorMarket.getListMarkets(new MarketListEvent() {
+        mInteractorMarket.getListMarkets(new MarketWithStockListEvent() {
             @Override
-            public void result(List<MarketModel> responseMarketList) {
-                if (mView != null) {
-                    if (responseMarketList != null) {
-                        mView.viewListMarkets(responseMarketList);
-                    }
-                }
+            public void result(List<MarketWithStockModel> responseMarketWithStockList) {
+                mView.viewListMarkets(responseMarketWithStockList);
             }
         });
     }

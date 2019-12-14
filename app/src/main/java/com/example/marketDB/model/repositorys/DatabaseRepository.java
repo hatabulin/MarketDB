@@ -2,7 +2,9 @@ package com.example.marketDB.model.repositorys;
 
 import com.example.marketDB.model.events.BooleanEvent;
 import com.example.marketDB.model.events.MarketListEvent;
+import com.example.marketDB.model.events.MarketWithStockListEvent;
 import com.example.marketDB.model.models.MarketModel;
+import com.example.marketDB.model.models.MarketWithStockModel;
 
 public interface DatabaseRepository {
 
@@ -10,7 +12,9 @@ public interface DatabaseRepository {
 
     void checkTable(BooleanEvent event);
 
-    void getAllRecordsFtomTable(MarketModel model, MarketListEvent event);
+    void getAllRecordsFtomTableMarket(MarketModel model, MarketListEvent event);
+
+    void getAllRecordsFtomTableMarketWithStock(MarketWithStockModel model, MarketWithStockListEvent event);
 
     void getAllRecordsFtomTableStock(MarketModel model, MarketListEvent event);
 
@@ -18,7 +22,7 @@ public interface DatabaseRepository {
 
     void fillTable();
 
-    void getAllRecordsFtomTable(MarketModel model);
+    void getAllRecordsFtomTableMarket(MarketModel model);
 
     void closeBase();
 }

@@ -1,10 +1,11 @@
 package com.example.marketDB.model.interactor.interactors;
 
 import com.example.marketDB.model.events.BooleanEvent;
-import com.example.marketDB.model.events.MarketListEvent;
+import com.example.marketDB.model.events.MarketWithStockListEvent;
 import com.example.marketDB.model.events.SuccessEvent;
 import com.example.marketDB.model.interactor.Interactor;
 import com.example.marketDB.model.models.MarketModel;
+import com.example.marketDB.model.models.MarketWithStockModel;
 import com.example.marketDB.model.repositorys.DatabaseRepository;
 
 import java.util.List;
@@ -19,12 +20,12 @@ public class MarketInteractor implements Interactor.interactorMarket {
 
 
     @Override
-    public void getListMarkets(final MarketListEvent event) {
+    public void getListMarkets(final MarketWithStockListEvent event) {
 
-        MarketModel modelMarket = new MarketModel();
-        mDatabaseRepository.getAllRecordsFtomTable(modelMarket, new MarketListEvent() {
+        MarketWithStockModel modelMarket = new MarketWithStockModel();
+        mDatabaseRepository.getAllRecordsFtomTableMarketWithStock(modelMarket, new MarketWithStockListEvent() {
             @Override
-            public void result(List<MarketModel> responseMarketList) {
+            public void result(List<MarketWithStockModel> responseMarketList) {
 
                 if (responseMarketList != null) {
 //                    mDatabaseRepository.closeBase();
