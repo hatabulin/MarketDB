@@ -53,19 +53,12 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder
         holder.tvStockId.setText("Used Stock ID:" + model.getStockID());
     }
 
-    // Изменить нахуй !
     @Deprecated
     public void addList(List<MarketModel> listMarketModel) {
 
         this.marketModelsList.clear();
         this.marketModelsList = listMarketModel;
 
-//        mInteractor.getListStocks(new StockListEvent() {
-//            @Override
-//            public void result(List<StockModel> responseStockList) {
-//                stockModelsList = responseStockList;
-//            }
-//        });
         notifyDataSetChanged();
     }
 
