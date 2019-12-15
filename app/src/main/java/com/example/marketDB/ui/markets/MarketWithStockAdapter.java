@@ -18,8 +18,6 @@ import com.example.marketDB.utils.rewriting_view.SquareFrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-// Унаследовали наш адаптер от RecyclerView.Adapter
-// Здесь же указали наш собственный ViewHolder, который предоставит нам доступ к View-компонентам
 public class MarketWithStockAdapter extends RecyclerView.Adapter<MarketWithStockAdapter.ViewHolder> {
 
     private Context context;
@@ -83,8 +81,16 @@ public class MarketWithStockAdapter extends RecyclerView.Adapter<MarketWithStock
             public void onClick(View v) {
                 if (mEvent != null) {
                     //mEvent.click(model.getId());
-                    ToasUtils.info("Under construction !");
+                    ToasUtils.info("Редактирование записи.\nUnder construction !");
                 }
+            }
+        });
+
+        holder.shopItem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                ToasUtils.info("Удаление записи.\nUnder construction !");
+                return true;
             }
         });
     }

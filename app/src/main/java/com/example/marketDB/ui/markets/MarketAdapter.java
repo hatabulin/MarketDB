@@ -17,8 +17,6 @@ import com.example.marketDB.utils.rewriting_view.SquareFrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-// Унаследовали наш адаптер от RecyclerView.Adapter
-// Здесь же указали наш собственный ViewHolder, который предоставит нам доступ к View-компонентам
 public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.ViewHolder> {
 
     private Context context;
