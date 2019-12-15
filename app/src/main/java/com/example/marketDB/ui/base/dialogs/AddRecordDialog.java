@@ -30,7 +30,6 @@ public class AddRecordDialog extends DialogFragment {
     private Button btn_confirm;
     private Button btn_cancel;
     private EditText et_dialog_name;
-    private EditText et_dialog_stock_id;
     private Event event;
 
     public static AddRecordDialog newInstance() {
@@ -69,10 +68,10 @@ public class AddRecordDialog extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        head = getResources().getString(R.string.dialog_default_head_string);
-//        body = getResources().getString(R.string.dialog_default_body_string);
-//        positive = getResources().getString(R.string.dialog_default_positive_string);
-//        negative = getResources().getString(R.string.dialog_default_negative_string);
+        head = getResources().getString(R.string.dialog_default_head_string);
+        body = getResources().getString(R.string.dialog_default_body_string);
+        positive = getResources().getString(R.string.dialog_default_positive_string);
+        negative = getResources().getString(R.string.dialog_default_negative_string);
 
         if (getArguments() != null) {
             head = getArguments().getString(HEAD, head);
@@ -116,7 +115,7 @@ public class AddRecordDialog extends DialogFragment {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         getDialog().setCanceledOnTouchOutside(false);
         Objects.requireNonNull(getDialog().getWindow()).setBackgroundDrawableResource(R.color.colorTransparentBlack);
-        View v = inflater.inflate(R.layout.dialog_change_record, container, false);
+        View v = inflater.inflate(R.layout.dialog_add_record, container, false);
 
         et_dialog_name = v.findViewById(R.id.et_market_name);
         btn_confirm = v.findViewById(R.id.btn_confirm);
@@ -125,7 +124,7 @@ public class AddRecordDialog extends DialogFragment {
             public void onClick(View v) {
                 if (event != null) {
                     if (et_dialog_name.getText() != null) {
-                        event.confirm();
+                        event.confirm(et_dialog_name.getText().toString());
                     } else {
 //                        ToasUtils.warning("wrong password");
                         event.failed();
@@ -150,7 +149,7 @@ public class AddRecordDialog extends DialogFragment {
 
     public interface Event {
 
-        void confirm();
+        void confirm(String nameMarket);
 
         void failed();
 

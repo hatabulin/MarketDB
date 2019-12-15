@@ -18,7 +18,7 @@ import com.example.marketDB.model.interactor.interactors.MarketInteractor;
 import com.example.marketDB.model.models.MarketWithStockModel;
 import com.example.marketDB.model.repositorys.DatabaseRepositoryImpl;
 import com.example.marketDB.ui.base.BaseFragment;
-import com.example.marketDB.utils.ToasUtils;
+import com.example.marketDB.ui.base.dialogs.AddRecordDialog;
 import com.example.marketDB.utils.fragments.FragmentsAnimationId;
 import com.example.marketDB.utils.fragments.FragmentsId;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -89,7 +89,26 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToasUtils.info("Under construction !");
+
+                AddRecordDialog addRecordDialog = new AddRecordDialog();
+
+                addRecordDialog.registerEvent(new AddRecordDialog.Event() {
+                    @Override
+                    public void confirm(String nameMarket) {
+
+                    }
+
+                    @Override
+                    public void failed() {
+
+                    }
+
+                    @Override
+                    public void isDismis() {
+
+                    }
+                });
+                addRecordDialog.show(getChildFragmentManager(), addRecordDialog.getClass().getSimpleName());
             }
         });
 

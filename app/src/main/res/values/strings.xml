@@ -4,4 +4,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment_market_title">Супермаркеты:</string>
+    <string name="dialog_default_head_string">Добавить запись в"</string>
+    <string name="dialog_default_body_string">Маркеты</string>
+    <string name="dialog_default_positive_string">Да</string>
+    <string name="dialog_default_negative_string">Нет</string>
+
+    <string name="dialog_add_record_change">Изменить</string>
+    <string name="dialog_add_record_add">Добавить</string>
+    <string name="dialog_add_record_hint">Название магазина</string>
+
 </resources>
