@@ -12,7 +12,7 @@ public interface Interactor {
 
         void setSelectedMarket(int id, SuccessEvent event);
 
-        void addNewMarket(SuccessEvent event);
+        void addNewMarket(String name, int stockId);
     }
 
     interface interactorStock {

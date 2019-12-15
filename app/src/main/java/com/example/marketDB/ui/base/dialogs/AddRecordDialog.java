@@ -30,6 +30,8 @@ public class AddRecordDialog extends DialogFragment {
     private Button btn_confirm;
     private Button btn_cancel;
     private EditText et_dialog_name;
+    private EditText et_dialog_stock_id;
+
     private Event event;
 
     public static AddRecordDialog newInstance() {
@@ -118,13 +120,15 @@ public class AddRecordDialog extends DialogFragment {
         View v = inflater.inflate(R.layout.dialog_add_record, container, false);
 
         et_dialog_name = v.findViewById(R.id.et_market_name);
+        et_dialog_stock_id = v.findViewById(R.id.et_market_stock_id);
+
         btn_confirm = v.findViewById(R.id.btn_confirm);
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (event != null) {
                     if (et_dialog_name.getText() != null) {
-                        event.confirm(et_dialog_name.getText().toString());
+                        event.confirm(et_dialog_name.getText().toString(), Integer.parseInt(et_dialog_stock_id.getText().toString()));
                     } else {
 //                        ToasUtils.warning("wrong password");
                         event.failed();
@@ -149,7 +153,7 @@ public class AddRecordDialog extends DialogFragment {
 
     public interface Event {
 
-        void confirm(String nameMarket);
+        void confirm(String nameMarket, int stockId);
 
         void failed();
 

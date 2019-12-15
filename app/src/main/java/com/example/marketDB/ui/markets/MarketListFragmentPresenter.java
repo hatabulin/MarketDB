@@ -42,4 +42,16 @@ public class MarketListFragmentPresenter implements MarketListFragmentView.Prese
             mView.openMarket();
         }
     }
+
+    @Override
+    public void addRecord(String name, int stockId) {
+        mInteractorMarket.addNewMarket(name, stockId);
+
+        mInteractorMarket.getListMarkets(new MarketWithStockListEvent() {
+            @Override
+            public void result(List<MarketWithStockModel> responseMarketWithStockList) {
+                mView.viewListMarkets(responseMarketWithStockList);
+            }
+        });
+    }
 }

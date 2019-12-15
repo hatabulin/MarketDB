@@ -94,8 +94,8 @@ public class MarketListFragment extends BaseFragment implements MarketListFragme
 
                 addRecordDialog.registerEvent(new AddRecordDialog.Event() {
                     @Override
-                    public void confirm(String nameMarket) {
-
+                    public void confirm(String nameMarket, int stockId) {
+                        presenter.addRecord(nameMarket, stockId);
                     }
 
                     @Override

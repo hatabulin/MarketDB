@@ -19,5 +19,7 @@ public interface MarketListFragmentView {
 
         void setSelectedId(Long id);
 
+        void addRecord(String name, int stockId);
+
     }
 }

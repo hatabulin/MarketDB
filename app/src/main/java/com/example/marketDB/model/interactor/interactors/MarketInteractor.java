@@ -7,6 +7,7 @@ import com.example.marketDB.model.interactor.Interactor;
 import com.example.marketDB.model.models.MarketModel;
 import com.example.marketDB.model.models.MarketWithStockModel;
 import com.example.marketDB.model.repositorys.DatabaseRepository;
+import com.example.marketDB.utils.ToasUtils;
 
 import java.util.List;
 
@@ -42,16 +43,35 @@ public class MarketInteractor implements Interactor.interactorMarket {
     }
 
     @Override
-    public void addNewMarket(final SuccessEvent event) {
+    public void addNewMarket(String name, int stockId) {
 
-        MarketModel modelMarket = new MarketModel();
-        mDatabaseRepository.addRecordToTable(modelMarket, new BooleanEvent() {
+        MarketModel marketModel = new MarketModel();
+
+        marketModel.setName(name);
+        marketModel.setStockID(stockId);
+        mDatabaseRepository.addRecordToTable(marketModel, new BooleanEvent() {
             @Override
             public void result(boolean result) {
-                event.done();
+                if (result) {
+                    ToasUtils.success("record added to table.");
+                } else {
+                    ToasUtils.success("add record FAILED !");
+                }
             }
         });
     }
+
+//    @Override
+//    public void addNewMarket(final SuccessEvent event) {
+//
+//        MarketModel modelMarket = new MarketModel();
+//        mDatabaseRepository.addRecordToTable(modelMarket, new BooleanEvent() {
+//            @Override
+//            public void result(boolean result) {
+//                event.done();
+//            }
+//        });
+//    }
 
 //    @Override
 //    public void addNewMarket() {
