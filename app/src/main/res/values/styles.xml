@@ -35,6 +35,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="DialogAddRecordBody">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="DialogAddRecordHead">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
     <style name="ImageInto">
         <item name="android:layout_width">65dp</item>
         <item name="android:layout_height">65dp</item>
