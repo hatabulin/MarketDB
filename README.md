@@ -1,3 +1,3 @@
-MarketDB - (Java project)
+MarketDB - (Training Java project)
 
-last version: https://gitlab.com/pupkinsergik929/MarketDB
+last version: https://gitlab.com/sergiklutsk/MarketDB
